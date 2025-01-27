@@ -25,6 +25,7 @@ class Circle {
     return result.toString();
   }
 //  Edit made by Amandeep Dhaliwal 220188388
+// test
 
   private Boolean shouldPaint(int i, int jj){
     int j = jj/2;
