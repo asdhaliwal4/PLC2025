@@ -24,6 +24,7 @@ class Circle {
     }
     return result.toString();
   }
+//  Edit made by Amandeep Dhaliwal 220188388
 
   private Boolean shouldPaint(int i, int jj){
     int j = jj/2;
@@ -46,4 +47,3 @@ class Circle {
   // }
   //test comment
 }
-//  Edit made by Amandeep Dhaliwal 220188388
