@@ -1,10 +1,17 @@
-def listFunc():
-    return [i for i in range(1, 6)] #Create list of ints from 1 to 5, Haskell equivalent [1..5]
+listFunc :: Int -> Int -> [Int]
+listFunc a b = [a..b]  
 
-def applicatorFunc(inpFunc, s):
-    if s=='s':
-        return sum(inpFunc())
-    else:
-        return sum(inpFunc())/5
+applicatorFunc :: (Int -> Int -> [Int]) -> Int -> Int -> Char -> Float
+applicatorFunc inpFunc a b s
+    | s == 's'  = fromIntegral (sum (inpFunc a b))  
+    | otherwise = fromIntegral (sum (inpFunc a b)) / fromIntegral (length (inpFunc a b))  
 
-print(applicatorFunc(listFunc, 's'))
+main :: IO ()
+main = do
+    putStrLn "Enter start of range:"
+    a <- readLn
+    putStrLn "Enter end of range:"
+    b <- readLn
+    putStrLn "Enter 's' for sum or anything else for average:"
+    s <- getLine
+    print (applicatorFunc listFunc a b (head s))
