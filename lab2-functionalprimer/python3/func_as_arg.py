@@ -1,20 +1,30 @@
-def list_func(a, b):
-    return list(range(a, b + 1)) 
+function listFunc(a, b) {
+    let arr = [];
+    for (let i = a; i <= b; i++) {
+        arr.push(i);
+    }
+    return arr;
+}
 
-def applicator_func(inp_func, a, b, s):
-    nums = inp_func(a, b)
-    if s == 's':
-        return sum(nums) 
-    else:
-        return sum(nums) / len(nums)  
+// applicatorFunc computes the sum or average based on the user's choice
+function applicatorFunc(inpFunc, a, b, s) {
+    const nums = inpFunc(a, b);
+    if (s === 's') {
+        return nums.reduce((acc, num) => acc + num, 0);  
+    } else {
+        const sum = nums.reduce((acc, num) => acc + num, 0);
+        return sum / nums.length;  
+    }
+}
 
-def main():
-    a = int(input("Enter start of range: "))
-    b = int(input("Enter end of range: "))
-    s = input("Enter 's' for sum or anything else for average: ").strip()
+function main() {
+    const a = parseInt(prompt("Enter start of range: "), 10);
+    const b = parseInt(prompt("Enter end of range: "), 10);
+    const s = prompt("Enter 's' for sum or anything else for average: ").trim();
 
-    result = applicator_func(list_func, a, b, s)
-    print(f"Result: {result}")
+    const result = applicatorFunc(listFunc, a, b, s);
+    alert("Result: " + result);
+}
 
-if __name__ == "__main__":
-    main()
+// Run the main function
+main();
