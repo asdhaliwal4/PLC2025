@@ -5,7 +5,7 @@ ask prompt = do
     if line == "quit"
         then putStrLn "quitting..."
         else if line == ""
-            then ask prompt
+            then ask (prompt ++ "!")  -- Add an extra "!" each time Enter is pressed
             else do
                 putStrLn ("you said: " ++ reverse line)
                 ask prompt  -- Keep prompting until "quit" is entered
